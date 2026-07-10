@@ -30,22 +30,19 @@ export default function Home() {
       setTasks(res.data);
 
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
   };
   const fetchStats = async () => {
     try {
-
       const res = await API.get("/tasks/stats/dashboard");
 
       setStats(res.data);
 
     } catch (err) {
-
-      console.log(err);
-
+      console.error(err);
     }
   };
 
@@ -70,6 +67,7 @@ export default function Home() {
       </>
     );
   }
+
   return (
     <>
       <Navbar />
@@ -189,7 +187,6 @@ export default function Home() {
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
               {tasks
                 .filter((task) => {
 

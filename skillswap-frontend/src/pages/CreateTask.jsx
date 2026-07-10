@@ -59,7 +59,7 @@ export default function CreateTask() {
 
     } catch (err) {
       setLoading(false);
-      console.log(err);
+      console.error(err);
 
       toast.error("Failed to create task.");
 

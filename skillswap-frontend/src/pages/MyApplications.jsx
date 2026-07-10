@@ -17,7 +17,7 @@ export default function MyApplications() {
       setApplications(res.data);
 
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 

@@ -3,10 +3,7 @@ import { init } from "@nimiq/mini-app-sdk";
 let provider = null;
 
 export async function connectWallet() {
-
-
   try {
-
     provider = await init();
 
     await provider.connect();
@@ -17,16 +14,12 @@ export async function connectWallet() {
       return accounts[0];
     }
 
+    return null;
+
   } catch (err) {
-
-    console.log("Running outside Nimiq Pay.");
-
+    console.error("Wallet Connection Error:", err);
+    return null;
   }
-
-  // Development fallback wallet
-  // return "NQ98TESTWALLET987654321"; // for development
-  return "NQ12DEVWALLET123456789";
-
 }
 
 export function getProvider() {

@@ -25,7 +25,7 @@ export default function TaskDetails() {
       const res = await API.get(`/tasks/${id}`);
       setTask(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
       toast.error("Failed to load task");
     }
   };
@@ -44,7 +44,7 @@ export default function TaskDetails() {
       setAlreadyApplied(applied);
 
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
   };
@@ -84,7 +84,7 @@ export default function TaskDetails() {
       setShowModal(false);
 
     } catch (err) {
-      console.log(err);
+      console.error(err);
 
       if (err.response?.data?.message) {
         toast.error(err.response.data.message);

@@ -25,7 +25,7 @@ export default function Applicants() {
       const res = await API.get(`/tasks/${id}`);
       setTask(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -35,7 +35,7 @@ export default function Applicants() {
       const res = await API.get(`/applications/task/${id}`);
       setApplications(res.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -77,7 +77,7 @@ export default function Applicants() {
 
     } catch (err) {
 
-      console.log(err);
+      console.error(err);
 
     }
   };
@@ -119,7 +119,7 @@ export default function Applicants() {
 
     } catch (err) {
 
-      console.log(err);
+      console.error(err);
       toast.error("Failed to update task.");
 
     }
