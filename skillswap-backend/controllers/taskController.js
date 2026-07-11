@@ -135,29 +135,35 @@ const getDashboardStats = async (req, res) => {
 
     const totalTasks = await Task.countDocuments();
 
-    const totalApplications = await Application.countDocuments();
-
+    const uniqueFreelancers = await Application.distinct("walletAddress");
     const totalBudget = await Task.aggregate([
+      {
+        $match: {
+          status: "Completed",
+        },
+      },
       {
         $group: {
           _id: null,
-          total: { $sum: "$budget" }
-        }
-      }
+          total: {
+            $sum: "$budget",
+          },
+        },
+      },
     ]);
     const completedTasks = await Task.countDocuments({
       status: "Completed",
     });
 
     res.json({
-      totalTasks,
-      totalApplications,
-      completedTasks,
-      totalBudget:
-        totalBudget.length > 0
-          ? totalBudget[0].total
-          : 0,
-    });
+  totalTasks,
+  totalApplications: uniqueFreelancers.length,
+  completedTasks,
+  totalBudget:
+    totalBudget.length > 0
+      ? totalBudget[0].total
+      : 0,
+});
 
   } catch (err) {
 
