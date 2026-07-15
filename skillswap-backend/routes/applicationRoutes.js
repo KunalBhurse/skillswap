@@ -13,7 +13,7 @@ router.post("/", createApplication);
 
 router.get("/", getApplications);
 
-router.get("/:taskId", getApplicationsForTask);
+router.get("/task/:taskId", getApplicationsForTask);
 
 router.put("/:id", updateApplicationStatus);
 

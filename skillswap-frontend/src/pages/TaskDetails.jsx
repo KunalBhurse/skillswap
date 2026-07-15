@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import API from "../api/taskApi";
 import { useWallet } from "../context/WalletContext";
 import toast from "react-hot-toast";
+import Navbar from "../components/Navbar";
 
 export default function TaskDetails() {
   const { id } = useParams();
